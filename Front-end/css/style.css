@@ -77,6 +77,13 @@ p {
     font-size: 14px;
 }
 
+.direita {
+    text-align: right;
+}
+
+.esquerda {
+    text-align: left;
+}
 
 /* ========================================================================================================
                     CORES
@@ -91,6 +98,23 @@ p {
 }
 
 /* ========================================================================================================
+                    BOTÕES
+======================================================================================================== */
+
+.btnAmarelo {
+    padding: 8px 20px;
+    color: #005F5F;
+    border-radius: 20px;
+}
+
+.btnAmarelo:hover {
+    padding: 8px 20px;
+    color: #005F5F;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* ========================================================================================================
                     HEADER
 ======================================================================================================== */
 
@@ -102,7 +126,7 @@ p {
 }
 
 .header img {
-    max-width: 200px;
+    max-width: 230px;
     margin-top: 28px;
 }
 
@@ -111,6 +135,36 @@ p {
 ======================================================================================================== */
 
 .barraMenu {
-    width: 100px P;
+    width: 100%;
     height: 60px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    float: left;
+    padding: 22px 12px 22px 0px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav ul li:nth-child(2) {
+    padding: 22px 30px;
+}
+
+nav li a {
+    display: block;
+    color: #fff;
+}
+
+nav li a:hover {
+    display: inline;
+    color: #FDD800;
+}
+
+.barraBotao {
+    padding-top: 11px;
 }
