@@ -11,45 +11,196 @@
     <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- Custom CSS -->
 	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<!-- Responsivo Custom CSS -->
+	<link href="css/responsivo.css" rel="stylesheet" type="text/css"/>
 	<!-- Responsivo CSS -->
 	<link href="css/responsivo.css" rel="stylesheet" type="text/css"/>
+	<!-- Forms Style CSS -->
+    <link rel="stylesheet" href="plugins/forms-style/dist/css/bootstrap-select.css">
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="plugins/datepicker/css/bootstrap-datepicker.standalone.min.css">
+    <!-- Slick Slider -->
+	<link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
+
+
 </head>
 <body>
 
 <header class="header">
-	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+		<figure>
+			<a href="index.html"><img src="img/logo.svg" alt="Me Contrata"></a>
+		</figure>
 	</div>
-	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-		<div class="col-lg-6 col-md-6">
-			<figure>
-				<img src="img/logo.svg" alt="Me Contrata">
-			</figure>
-		</div>
-		<div class="col-lg-6 col-md-6">
-
-		</div>
-	</div>
-	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+	<div class="users col-lg-6 col-md-6 col-sm-6 col-xs-6">
+		<ul class="logins">
+			<li id="LoginEmpresa"><a href="#"><img src="img/empresa.svg"> Login Empresa</a></li>
+		  	<li id="LoginUsuario"><a href="#"><img src="img/user.svg"> Login Usuário</a></li>
+		</ul>
 	</div>
 </header>
 
-<nav class="barraMenu verde">
-	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-	</div>
-	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-			<ul>
-			  	<li><a href="#">Pesquisar Vagas</a></li>
-				<li><a href="#">O Portal Me Contrata</a></li>
-			</ul>
+<div id="abaLoginUsuario">
+	<p class="textoLogin">Faça login para acessar sua conta.</p>
+	<input type="text" name="loginUsuario" class="form-control-login" placeholder="Login">
+	<input type="password" name="loginUsuario" class="form-control-login" placeholder="Senha">
+	<button class="btn btnVerdeLogin verde" onclick="alert('Efetua Login')">Entrar</button>
+	<span>ou <a href="cadastro.html">Cadastre-se</a></span>
+</div>
+
+<div id="abaLoginEmpresa">
+	<p class="textoLogin">Faça login para acessar sua conta.</p>
+	<input type="text" name="loginUsuario" class="form-control-login" placeholder="Login">
+	<input type="password" name="loginUsuario" class="form-control-login" placeholder="Senha">
+	<button class="btn btnVerdeLogin verde" onclick="alert('Efetua Login')">Entrar</button>
+	<span>ou <a href="cadastro-empresa.html">Cadastre-se</a></span>
+</div>
+
+<!--banner-->
+<div class="row text-center">
+	<div class="banner">
+		<div class="campoBusca">
+			<input type="text" name="search" class="form-control-search-pricnipal" placeholder="Digite um cargo, empresa ou localidade">
+			<button class="btn botaoBusca" onclick="window.location.href='resultado_busca.html'")">Encontrar Vaga</button>
 		</div>
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 direita barraBotao">
-			<button class="btn btnAmarelo amarelo">Cadastrar Currículo</button>
+		<div class="single-item">
+			<div>
+				<img src="img/banner1.png" alt="banner1">
+			</div>
+			<div>
+				<img src="img/banner2.png" alt="banner1">
+			</div>
 		</div>
 	</div>
-	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+</div>
+
+<!-- barra verde -->
+<div class="barraVerde verde">
+	<div class="row">
+		<div class="col-lg-9 col-md-9 col-sm-6 col-xs-6">
+			<h3 class="chamada">São mais de 200 opções para você achar uma oportunidade.</h3>
+			<h2>Aproveite, é grátis.</h2>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+			<button class="btn btnAmarelo amarelo" onclick="alert('Tela Cadastrar Curriculo')">Cadastra-se</button>
+		</div>
 	</div>
-</nav>
+</div>
+
+<!-- corpo -->
+<div class="warapper">
+	<div class="container-fluid">
+		<section>
+			<div class="row mTop-80">
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+				<div class="tituloSub col-lg-10 col-md-10 col-sm-10 col-xs-10">
+					<h4 class="submenu"><img src="img/linhaAmarela.svg">PRINCIPAIS VAGAS<img src="img/linhaAmarela.svg"></h4>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+			</div>
+
+			<div class="flex-container">
+				<div class="flex-item">
+					<h4 class="card-title">Programador Java</h4>
+					<p class="card-text">Juiz de Fora - MG</p>
+					<p>Empresa: Stefanini</p>
+					<span class="card-label">Pré-requisitos</span>
+					<p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
+					<span class="saibaMais">saiba mais...</span>
+					<div class="center">
+						<button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
+					</div>
+				</div>
+				<div class="flex-item">
+					<h4 class="card-title">Programador Java</h4>
+					<p class="card-text">Juiz de Fora - MG</p>
+					<p>Empresa: Stefanini</p>
+					<span class="card-label">Pré-requisitos</span>
+					<p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
+					<span class="saibaMais">saiba mais...</span>
+					<div class="center">
+						<button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
+					</div>
+				</div>
+				<div class="flex-item">
+					<h4 class="card-title">Programador Java</h4>
+					<p class="card-text">Juiz de Fora - MG</p>
+					<p>Empresa: Stefanini</p>
+					<span class="card-label">Pré-requisitos</span>
+					<p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
+					<span class="saibaMais">saiba mais...</span>
+					<div class="center">
+						<button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
+					</div>
+				</div>
+				<div class="flex-item">
+					<h4 class="card-title">Programador Java</h4>
+					<p class="card-text">Juiz de Fora - MG</p>
+					<p>Empresa: Stefanini</p>
+					<span class="card-label">Pré-requisitos</span>
+					<p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
+					<span class="saibaMais">saiba mais...</span>
+					<div class="center">
+						<button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
+					</div>
+				</div>
+				<div class="flex-item"><h4 class="card-title">Programador Java</h4>
+					<p class="card-text">Juiz de Fora - MG</p>
+					<p>Empresa: Stefanini</p>
+					<span class="card-label">Pré-requisitos</span>
+					<p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
+					<span class="saibaMais">saiba mais...</span>
+					<div class="center">
+						<button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="row">
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+				<div class="tituloSub col-lg-10 col-md-10 col-sm-10 col-xs-10">
+					<h4 class="submenu"><img src="img/linhaAmarela.svg">ESTATÍSTICAS<img src="img/linhaAmarela.svg"></h4>
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 center">
+					<div class="contador">
+						<span>254</span>
+						<p>Vagas Preenchidas</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 center">
+					<div class="contador">
+						<span>163</span>
+						<p>Empresas cadastradas</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 center">
+					<div class="contador">
+						<span>451</span>
+						<p>Currículos Cadastrados</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+
+<!-- footer -->
+<footer>
+	<div class="footerPrincipal verde">
+
+	</div>
+	<div class="footerSecundario verdeEscuro">
+		<p>Copyright © 2017 - Me Contrata - Todos os direitos reservados.</p>
+	</div>
+</footer>
+
 
 
 
@@ -65,6 +216,19 @@
 <script src="js/jquery-3.2.0.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- slick slice imagens -->
+<script type="text/javascript" src="js/slick/slick.min.js"></script>
+<!-- scripts -->
+<script src="js/scripts.js"></script>
+<!-- Forms Style -->
+<script src="plugins/forms-style/dist/js/bootstrap-select.js"></script>
+<script src="plugins/forms-style/dist/js/i18n/defaults-pt_BR.min.js"></script>
+
+<!-- Datepicker -->
+<script src="plugins/datepicker/js/bootstrap-datepicker.js"></script>
+<script src="plugins/datepicker/js/bootstrap-datepicker.pt-BR.min.js" charset="utf-8"></script>
+
+
 
 </body>
 </html>

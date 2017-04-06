@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Me Contrata</title>
+
+	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Portal de Vagas Me Contrata">
+    <meta name="author" content="Vinícius Peixoto">
+    <!-- Bootstrap Core CSS -->
+    <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<!-- Responsivo Custom CSS -->
+	<link href="css/responsivo.css" rel="stylesheet" type="text/css"/>
+	<!-- Responsivo CSS -->
+	<link href="css/responsivo.css" rel="stylesheet" type="text/css"/>
+	<!-- Forms Style CSS -->
+    <link rel="stylesheet" href="plugins/forms-style/dist/css/bootstrap-select.css">
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="plugins/datepicker/css/bootstrap-datepicker.standalone.min.css">
+    <!-- Slick Slider -->
+	<link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
+
+</head>
+<body>
+
+<header class="header">
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+		<figure>
+			<a href="index.html"><img src="img/logo.svg" alt="Me Contrata"></a>
+		</figure>
+	</div>
+	<div class="users col-lg-6 col-md-6 col-sm-6 col-xs-6">
+		<ul class="logins">
+			<li id="LoginEmpresa"><a href="#"><img src="img/empresa.svg"> Login Empresa</a></li>
+		  	<li id="LoginUsuario"><a href="#"><img src="img/user.svg"> Login Usuário</a></li>
+		</ul>
+	</div>
+</header>
+
+<div id="abaLoginUsuario">
+	<p class="textoLogin">Faça login para acessar sua conta.</p>
+	<input type="text" name="loginUsuario" class="form-control-login" placeholder="Login">
+	<input type="password" name="loginUsuario" class="form-control-login" placeholder="Senha">
+	<button class="btn btnVerdeLogin verde" onclick="alert('Efetua Login')">Entrar</button>
+	<span>ou <a href="cadastro.html">Cadastre-se</a></span>
+</div>
+
+<div id="abaLoginEmpresa">
+	<p class="textoLogin">Faça login para acessar sua conta.</p>
+	<input type="text" name="loginUsuario" class="form-control-login" placeholder="Login">
+	<input type="password" name="loginUsuario" class="form-control-login" placeholder="Senha">
+	<button class="btn btnVerdeLogin verde" onclick="alert('Efetua Login')">Entrar</button>
+	<span>ou <a href="cadastro-empresa.html">Cadastre-se</a></span>
+</div>
+
+<!--banner-->
+<div class="row text-center">
+	<div class="bannerInterno">
+	</div>
+</div>
+
+<!-- barra verde -->
+<div class="barraVerde verde">
+	<div class="row">
+		<div class="col-lg-9 col-md-9 col-sm-6 col-xs-6">
+			<h3 class="chamada">São mais de 200 opções para você achar uma oportunidade.</h3>
+			<h2>Aproveite, é grátis.</h2>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+			<button class="btn btnAmarelo amarelo" onclick="alert('Tela Cadastrar Curriculo')">Cadastra-se</button>
+		</div>
+	</div>
+</div>
+
+<!-- corpo -->
+<div class="warapper">
+	<div class="container-fluid">
+		<section>
+			<div class="row resultadoBusca mTop-50">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+
+				</div>
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 center">
+					<span id="textoDestaque">Cadastra-se agora mesmo, é rápido e grátis. São centenas de vagas e oportunidades de você encontrar um emprego ou estágio.</span>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+				</div>
+			</div>
+
+			<div class="row mTop-50">
+				<div class="col-lg-2 col-md-1 col-sm-1 col-xs-12"></div>
+				<div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
+					<div class="corpoCadastro">
+						<h3 class="tituloCadastro">CADASTRO DE USUÁRIO</h3>
+						<span class="subtituloCadastro">Dados de Acesso</span>
+						<form class="form-group mTop-20" action="">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="control-label" for="nome">E-mail</label>
+									<input type="mail" name="nome" class="form-control">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+									<label class="control-label" for="nome">Senha</label>
+									<input type="password" name="nome" class="form-control">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+									<label class="control-label" for="nome">Repita a Senha</label>
+									<input type="password" name="nome" class="form-control">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+								</div>
+							</div>
+
+							<div class="row mTop-50">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<span class="subtituloCadastro">Dados Pessoais</span>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 mTop-20">
+									<label class="control-label" for="nome">Nome</label>
+									<input type="mail" name="nome" class="form-control">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+									<label class="control-label" for="nome">Data Nascimento</label>
+									<input type="text" name="dataNascimento" class="form-control">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+									<label class="control-label" for="nome">CPF</label>
+									<input type="text" name="cpf" class="form-control">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+									<label class="control-label" for="nome">Telefone</label>
+									<input type="text" name="telefone" class="form-control">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<label class="control-label" for="nome">Adicionar Foto</label>
+									<input type="file" name="addFoto" class="form-control">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 acoes">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+									<button class="btn btnVerdeAcao verde">Cadastrar</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-1 col-sm-1 col-xs-12"></div>
+			</div>
+		</section>
+	</div>
+</div>
+
+<!-- footer -->
+<footer>
+	<div class="footerPrincipal verde">
+
+	</div>
+	<div class="footerSecundario verdeEscuro">
+		<p>Copyright © 2017 - Me Contrata - Todos os direitos reservados.</p>
+	</div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- jQuery -->
+<script src="js/jquery-3.2.0.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- slick slice imagens -->
+<script type="text/javascript" src="js/slick/slick.min.js"></script>
+<!-- scripts -->
+<script src="js/scripts.js"></script>
+<!-- Forms Style -->
+<script src="plugins/forms-style/dist/js/bootstrap-select.js"></script>
+<script src="plugins/forms-style/dist/js/i18n/defaults-pt_BR.min.js"></script>
+
+<!-- Datepicker -->
+<script src="plugins/datepicker/js/bootstrap-datepicker.js"></script>
+<script src="plugins/datepicker/js/bootstrap-datepicker.pt-BR.min.js" charset="utf-8"></script>
+
+
+
+</body>
+</html>

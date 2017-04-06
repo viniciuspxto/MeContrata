@@ -1,0 +1,39 @@
+@media (max-width: 460px) {
+
+.barraVerde h3.chamada {
+    display: none;
+}
+
+.barraVerde h2 {
+    color: #fff;
+    font-size: 1.1em;
+    padding-left: 16px;
+    margin-top: 20px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.barraVerde img {
+    width: 18px;
+}
+
+.btnAmarelo {
+    padding: 8px 10px;
+    color: #005F5F;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 9px;
+    font-weight: bold;
+}
+
+.btnAmarelo:hover {
+    padding: 8px 30px;
+    color: #005F5F;
+    border-radius: 20px;
+    background-color: #
+}
+
+
+
+
+}
