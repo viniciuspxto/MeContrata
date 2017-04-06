@@ -488,7 +488,7 @@ h4.card-title {
     /* box-shadow: 0px 2px 15px #d3d3d3; */
     border: 1px solid #EcEcEc;
     padding: 20px;
-    margin: 0 20px 30px 20px;
+    margin: 0 10px 30px 10px;
     border-radius: 10px;
 }
 
@@ -900,6 +900,12 @@ h4.card-title {
     color: #fff;
 }
 
+span.qtdVagas {
+    font-size: 24px !important;
+    color: #31D0D2 !important;
+    font-weight: bold !important;
+}
+
 /* ========================================================================================================
                     CORPO CADASTRO
 ======================================================================================================== */
@@ -950,6 +956,13 @@ h4.card-title {
     line-height: 20px;
 }
 
+.textoDestaque {
+    font-size: 16px;
+    font-weight: normal;
+    color: #95989A;
+    line-height: 20px;
+}
+
 .mTop-10 {padding-top: 10px;}
 .mTop-20 {padding-top: 20px;}
 .mTop-30 {padding-top: 30px;}
@@ -970,5 +983,23 @@ h4.card-title {
     color: #d4d4d4;
 }
 
+.modal-body {
+    padding: 30px 20px;
+}
 
+.iconTipoCadastro {
+    max-height: 60px;
+    padding-bottom: 10px;
+}
+
+.nomeIconCad {
+    font-size: 36px;
+    color: #95989A;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h4.bemVindo {
+    font-size: 28px;
+}
 

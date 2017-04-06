@@ -20,7 +20,7 @@
 			<h2>Aproveite, é grátis.</h2>
 		</div>
 		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-			<button class="btn btnAmarelo amarelo" onclick="alert('Tela Cadastrar Curriculo')">Cadastra-se</button>
+			<button class="btn btnAmarelo amarelo" data-toggle="modal" data-target="#tipoCadastro">Cadastra-se</button>
 		</div>
 	</div>
 </div>
@@ -180,3 +180,36 @@
 		</section>
 	</div>
 </div>
+
+<!-- MODAL TIPO CADASTRO -->
+<div class="modal fade" id="tipoCadastro">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- Modal Body -->
+			<div class="modal-body">
+				<div class="form-group">
+
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
+							<h4 class="bemVindo">Bem-vindo ao Me Contrata!</h4><br>
+							<span class="textoDestaque">Escolha qual tipo de cadastro você deseja criar:</span>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center mTop-40">
+							<a href="cadastro.html">
+								<figure><img class="iconTipoCadastro" src="img/user.svg" alt="usuario"></figure>
+								<span class="nomeIconCad">Usuário</span>
+							</a>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center mTop-40">
+							<a href="cadastro-empresa.html">
+								<figure><img class="iconTipoCadastro" src="img/empresa.svg" alt="usuario"></figure>
+								<span class="nomeIconCad">Empresa</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- FIM DA MODAL -->
