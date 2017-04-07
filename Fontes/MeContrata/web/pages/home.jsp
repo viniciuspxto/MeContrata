@@ -154,13 +154,13 @@
 							<span class="textoDestaque">Escolha qual tipo de cadastro você deseja criar:</span>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center mTop-40">
-							<a href="cadastro.html">
+							<a href="template.jsp?page=cadastroUsuario">
 								<figure><img class="iconTipoCadastro" src="img/user.svg" alt="usuario"></figure>
 								<span class="nomeIconCad">Usuário</span>
 							</a>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center mTop-40">
-							<a href="cadastro-empresa.html">
+							<a href="template.jsp?page=cadastroEmpresa">
 								<figure><img class="iconTipoCadastro" src="img/empresa.svg" alt="usuario"></figure>
 								<span class="nomeIconCad">Empresa</span>
 							</a>

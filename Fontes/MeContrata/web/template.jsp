@@ -4,6 +4,8 @@
     Author     : vinicius
 --%>
 
+<%@page import="java.io.File"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,10 +20,6 @@
     <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <!-- Custom CSS -->
 	<link href="css/style.css" rel="stylesheet" type="text/css"/>
-	<!-- Responsivo Custom CSS -->
-	<link href="css/responsivo.css" rel="stylesheet" type="text/css"/>
-	<!-- Responsivo CSS -->
-	<link href="css/responsivo.css" rel="stylesheet" type="text/css"/>
 	<!-- Forms Style CSS -->
     <link rel="stylesheet" href="plugins/forms-style/dist/css/bootstrap-select.css">
     <!-- Datepicker CSS -->
@@ -36,7 +34,7 @@
 <header class="header">
 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 		<figure>
-			<a href="index.html"><img src="img/logo.svg" alt="Me Contrata"></a>
+			<a href="template.jsp?page=home"><img src="img/logo.svg" alt="Me Contrata"></a>
 		</figure>
 	</div>
 	<div class="users col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -49,29 +47,50 @@
 
 <div id="abaLoginUsuario">
 	<p class="textoLogin">Faça login para acessar sua conta.</p>
-	<input type="text" name="loginUsuario" class="form-control-login" placeholder="Login">
-	<input type="password" name="loginUsuario" class="form-control-login" placeholder="Senha">
-	<button class="btn btnVerdeLogin verde" onclick="alert('Efetua Login')">Entrar</button>
-	<span>ou <a href="cadastro.html">Cadastre-se</a></span>
+        <form action="HomeCentral" method="POST">
+            <input type="hidden" name="op" value="loginUsuario">
+            <input type="text" name="loginUsuario" class="form-control-login" placeholder="Login">
+            <input type="password" name="senha" class="form-control-login" placeholder="Senha">
+            <c:if test="${loginUsuarioInvalido == true}">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div id="alertLogin" role="alert">  
+                        Login ou senha inválidos.
+                    </div>
+                </div>
+            </c:if>
+            <button type="submit" class="btn btnVerdeLogin verde">Entrar</button>
+        </form>
+	<span>ou <a href="template.jsp?page=cadastroUsuario">Cadastre-se</a></span>
 </div>
 
 <div id="abaLoginEmpresa">
 	<p class="textoLogin">Faça login para acessar sua conta.</p>
-	<input type="text" name="loginUsuario" class="form-control-login" placeholder="Login">
-	<input type="password" name="loginUsuario" class="form-control-login" placeholder="Senha">
-	<button class="btn btnVerdeLogin verde" onclick="alert('Efetua Login')">Entrar</button>
-	<span>ou <a href="cadastro-empresa.html">Cadastre-se</a></span>
+	<input type="text" name="loginEmpresa" class="form-control-login" placeholder="Login">
+	<input type="password" name="senha" class="form-control-login" placeholder="Senha">
+	<button class="btn btnVerdeLogin verde">Entrar</button>
+	<span>ou <a href="template.jsp?page=cadastroEmpresa">Cadastre-se</a></span>
 </div>
-
     
 <!-- corpo -->
 
+<c:if test="${param.page == null}">
+    <jsp:include page="pages/home.jsp" /> 
+</c:if>
+<c:if test="${param.page != null}">
+    <c:set var="pg" value="pages/${param.page}.jsp" /> 
 
-
-
+    <%
+        //out.print(request.getServletContext().getRealPath("/")+"\\pages\\"+request.getParameter("page")+".jsp");
+        File f = new File(request.getServletContext().getRealPath("/") + "/pages/" + request.getParameter("page") + ".jsp");
+        if (f.exists()) {
+    %>
+    <jsp:include page="${pg}" />
+    <%} else {%>
+    <jsp:include page="pages/404.jsp" />
+    <%}%>
+</c:if>
 
 <!-- fim do corpo -->
-
 
 <!-- footer -->
 <footer>
@@ -99,6 +118,12 @@
 <!-- Datepicker -->
 <script src="plugins/datepicker/js/bootstrap-datepicker.js"></script>
 <script src="plugins/datepicker/js/bootstrap-datepicker.pt-BR.min.js" charset="utf-8"></script>
+
+<script>
+	function abrirModal(){
+		$("#cadastroUsuarioSuc").modal();
+	}
+</script>
 
 </body>
 </html>

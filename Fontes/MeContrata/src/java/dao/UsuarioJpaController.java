@@ -135,4 +135,18 @@ public class UsuarioJpaController implements Serializable {
         }
     }
     
+    public Usuario verificaLogin(String loginUsuario, String senha) {
+        EntityManager em = getEntityManager();
+        String query = "select u from Usuario u where u.email = :email and u.senha = :senha";
+        Query q = em.createQuery(query);
+        q.setParameter("email", loginUsuario);
+        q.setParameter("senha", senha);
+        List<Usuario> usuarios = q.getResultList();
+        if(usuarios != null && usuarios.size() > 0){
+            return usuarios.get(0);
+        }
+        return null;
+        
+    }
+    
 }

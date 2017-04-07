@@ -27,22 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "empresa")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Empresa.findAll", query = "SELECT e FROM Empresa e")
-    , @NamedQuery(name = "Empresa.findById", query = "SELECT e FROM Empresa e WHERE e.id = :id")
-    , @NamedQuery(name = "Empresa.findByNomefantasia", query = "SELECT e FROM Empresa e WHERE e.nomefantasia = :nomefantasia")
-    , @NamedQuery(name = "Empresa.findByRazaoSocial", query = "SELECT e FROM Empresa e WHERE e.razaoSocial = :razaoSocial")
-    , @NamedQuery(name = "Empresa.findByCnpj", query = "SELECT e FROM Empresa e WHERE e.cnpj = :cnpj")
-    , @NamedQuery(name = "Empresa.findByEmail", query = "SELECT e FROM Empresa e WHERE e.email = :email")
-    , @NamedQuery(name = "Empresa.findBySenha", query = "SELECT e FROM Empresa e WHERE e.senha = :senha")
-    , @NamedQuery(name = "Empresa.findByCep", query = "SELECT e FROM Empresa e WHERE e.cep = :cep")
-    , @NamedQuery(name = "Empresa.findByLogradouro", query = "SELECT e FROM Empresa e WHERE e.logradouro = :logradouro")
-    , @NamedQuery(name = "Empresa.findByNumero", query = "SELECT e FROM Empresa e WHERE e.numero = :numero")
-    , @NamedQuery(name = "Empresa.findByComplememto", query = "SELECT e FROM Empresa e WHERE e.complememto = :complememto")
-    , @NamedQuery(name = "Empresa.findByBairro", query = "SELECT e FROM Empresa e WHERE e.bairro = :bairro")
-    , @NamedQuery(name = "Empresa.findByCidade", query = "SELECT e FROM Empresa e WHERE e.cidade = :cidade")
-    , @NamedQuery(name = "Empresa.findByEstado", query = "SELECT e FROM Empresa e WHERE e.estado = :estado")
-    , @NamedQuery(name = "Empresa.findByTelefone", query = "SELECT e FROM Empresa e WHERE e.telefone = :telefone")})
+
 public class Empresa implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -76,8 +61,8 @@ public class Empresa implements Serializable {
     @Column(name = "numero")
     private String numero;
     @Basic(optional = false)
-    @Column(name = "complememto")
-    private String complememto;
+    @Column(name = "complemento")
+    private String complemento;
     @Basic(optional = false)
     @Column(name = "bairro")
     private String bairro;
@@ -100,8 +85,7 @@ public class Empresa implements Serializable {
         this.id = id;
     }
 
-    public Empresa(Integer id, String nomefantasia, String razaoSocial, String cnpj, String email, String senha, String cep, String logradouro, String numero, String complememto, String bairro, String cidade, String estado, String telefone) {
-        this.id = id;
+    public Empresa(String nomefantasia, String razaoSocial, String cnpj, String email, String senha, String cep, String logradouro, String numero, String complemento, String bairro, String cidade, String estado, String telefone) {
         this.nomefantasia = nomefantasia;
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
@@ -110,7 +94,7 @@ public class Empresa implements Serializable {
         this.cep = cep;
         this.logradouro = logradouro;
         this.numero = numero;
-        this.complememto = complememto;
+        this.complemento = complemento;
         this.bairro = bairro;
         this.cidade = cidade;
         this.estado = estado;
@@ -189,12 +173,12 @@ public class Empresa implements Serializable {
         this.numero = numero;
     }
 
-    public String getComplememto() {
-        return complememto;
+    public String getComplemento() {
+        return complemento;
     }
 
-    public void setComplememto(String complememto) {
-        this.complememto = complememto;
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
 
     public String getBairro() {

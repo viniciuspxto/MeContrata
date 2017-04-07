@@ -39,7 +39,6 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Usuario.findByTelefone", query = "SELECT u FROM Usuario u WHERE u.telefone = :telefone")
     , @NamedQuery(name = "Usuario.findByEmail", query = "SELECT u FROM Usuario u WHERE u.email = :email")
     , @NamedQuery(name = "Usuario.findBySenha", query = "SELECT u FROM Usuario u WHERE u.senha = :senha")
-    , @NamedQuery(name = "Usuario.findByResumoProfissional", query = "SELECT u FROM Usuario u WHERE u.resumoProfissional = :resumoProfissional")
     , @NamedQuery(name = "Usuario.findByFormacaoAcademica", query = "SELECT u FROM Usuario u WHERE u.formacaoAcademica = :formacaoAcademica")
     , @NamedQuery(name = "Usuario.findByExperienciaProfissional", query = "SELECT u FROM Usuario u WHERE u.experienciaProfissional = :experienciaProfissional")})
 public class Usuario implements Serializable {
@@ -69,8 +68,6 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "senha")
     private String senha;
-    @Column(name = "resumoProfissional")
-    private String resumoProfissional;
     @Column(name = "formacaoAcademica")
     private String formacaoAcademica;
     @Column(name = "experienciaProfissional")
@@ -85,8 +82,7 @@ public class Usuario implements Serializable {
         this.id = id;
     }
 
-    public Usuario(Integer id, String nome, Date datanascimento, String cpf, String telefone, String email, String senha) {
-        this.id = id;
+    public Usuario(String nome, Date datanascimento, String cpf, String telefone, String email, String senha) {
         this.nome = nome;
         this.datanascimento = datanascimento;
         this.cpf = cpf;
@@ -149,14 +145,6 @@ public class Usuario implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public String getResumoProfissional() {
-        return resumoProfissional;
-    }
-
-    public void setResumoProfissional(String resumoProfissional) {
-        this.resumoProfissional = resumoProfissional;
     }
 
     public String getFormacaoAcademica() {
