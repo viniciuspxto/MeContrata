@@ -15,6 +15,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import model.Empresa;
+import model.Usuario;
 import model.Vaga;
 
 /**
@@ -165,4 +166,29 @@ public class VagaJpaController implements Serializable {
         }
     }
     
+    @SuppressWarnings("empty-statement")
+    public List<Vaga> recuperarVagasAleatorias(){
+        EntityManager em = getEntityManager();
+        String query = "SELECT v FROM Vaga v WHERE v.ativo = 1 ORDER BY v.id desc";
+        Query q = em.createQuery(query);
+        q.setMaxResults(4);
+        return q.getResultList();
+    }
+    
+    @SuppressWarnings("empty-statement")
+    public List<Vaga> pesquisarVagas(String pesquisa){
+        EntityManager em = getEntityManager();
+        String query = "SELECT v FROM Vaga v WHERE v.ativo = 1 and v.nome LIKE :pesquisa";
+        Query q = em.createQuery(query);
+        q.setParameter("pesquisa", "%" + pesquisa + "%");
+        return q.getResultList();
+    }
+    
+    @SuppressWarnings("empty-statement")
+    public List<Vaga> buscarTodasVagas(){
+        EntityManager em = getEntityManager();
+        String query = "SELECT v FROM Vaga v WHERE v.ativo = 1";
+        Query q = em.createQuery(query);
+        return q.getResultList();
+    }
 }

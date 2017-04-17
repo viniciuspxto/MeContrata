@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!--banner-->
 <div class="row text-center">
@@ -36,8 +37,10 @@
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 center">
                     <span id="textoDestaque">Encontre a vaga ideal que você procura:</span>
                     <div class="campoBuscaInterna">
-                        <input type="text" name="search" class="form-control-search-pricnipal-Interno" placeholder="Digite um cargo, empresa ou localidade">
-                        <button class="btn botaoBuscaInterna" onclick="alert('Abre resultado de busca')">Encontrar Vaga</button>
+                        <form aciton="HomeCentral?op=pesquisarVaga" method="POST">
+                            <input type="text" name="search" class="form-control-search-pricnipal-Interno" placeholder="Digite um cargo...">
+                            <button type="submit" class="btn botaoBuscaInterna">Encontrar Vaga</button>
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
@@ -47,143 +50,38 @@
                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
                 <div class="tituloSub col-lg-10 col-md-10 col-sm-10 col-xs-10 center">
                     <h4 class="submenu"><img src="img/linhaAmarela.svg">RESULTADO DA BUSCA<img src="img/linhaAmarela.svg"></h4>
-                    <span id="textoDestaque">Foram encontrados 12 resultados 15 vagas para "programador java"</span>
+                        <c:if test="${numeroVagas > 0}">
+                        <span id="textoDestaque">Foram encontrados ${numeroVagas} vagas para "${pesquisa}"</span>
+                    </c:if>
+                    <c:if test="${numeroVagas <= 0}">
+                        <span id="textoDestaque">Não foram encontrados resultados para "${pesquisa}"</span>
+                    </c:if>
+
                 </div>
                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
             </div>
             <div class="row mTop-50">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="flex-container">
-                        <div class="flex-item-interno">
-                            <h4 class="card-title">Programador Java</h4>
-                            <p class="card-text">Juiz de Fora - MG</p>
-                            <p>Empresa: Stefanini</p>
-                            <span class="card-label">Pré-requisitos</span>
-                            <p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-                            <span class="saibaMais">saiba mais...</span>
-                            <div class="center">
-                                <button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
+                        <c:forEach var="v" items="${vagas}">
+                            <div class="flex-item">
+                                <h4 class="card-title">${v.nome}</h4>
+                                <p class="card-text">${v.idEmpresa.cidade} - ${v.idEmpresa.estado}</p>
+                                <p>${v.idEmpresa.nomefantasia}</p>
+                                <span class="card-label">Descrição</span>
+                                <p class="card-descricao">${v.descricaoFormatada}</p>
+                                <form action="HomeCentral" method="POST">
+                                    <input type="hidden" value="detalheVaga" name="op">
+                                    <input type="hidden" value="${v.id}" name="idVaga">
+                                    <input type="submit" value="saiba mais..">
+                                </form>
+                                <c:if test="${usuario != null}">
+                                    <div class="center">
+                                        <button class="btn btnCandidatar amarelo">Candidatar a vaga</button>
+                                    </div>
+                                </c:if>
                             </div>
-                        </div>
-                        <div class="flex-item-interno">
-                            <h4 class="card-title">Programador Java</h4>
-                            <p class="card-text">Juiz de Fora - MG</p>
-                            <p>Empresa: Stefanini</p>
-                            <span class="card-label">Pré-requisitos</span>
-                            <p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-                            <span class="saibaMais">saiba mais...</span>
-                            <div class="center">
-                                <button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-                            </div>
-                        </div>
-                        <div class="flex-item-interno">
-                            <h4 class="card-title">Programador Java</h4>
-                            <p class="card-text">Juiz de Fora - MG</p>
-                            <p>Empresa: Stefanini</p>
-                            <span class="card-label">Pré-requisitos</span>
-                            <p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-                            <span class="saibaMais">saiba mais...</span>
-                            <div class="center">
-                                <button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-                            </div>
-                        </div>
-                        <div class="flex-item-interno">
-                            <h4 class="card-title">Programador Java</h4>
-                            <p class="card-text">Juiz de Fora - MG</p>
-                            <p>Empresa: Stefanini</p>
-                            <span class="card-label">Pré-requisitos</span>
-                            <p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-                            <span class="saibaMais">saiba mais...</span>
-                            <div class="center">
-                                <button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-                            </div>
-                        </div>
-                        <div class="flex-item-interno"><h4 class="card-title">Programador Java</h4>
-                            <p class="card-text">Juiz de Fora - MG</p>
-                            <p>Empresa: Stefanini</p>
-                            <span class="card-label">Pré-requisitos</span>
-                            <p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-                            <span class="saibaMais">saiba mais...</span>
-                            <div class="center">
-                                <button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-                            </div>
-                        </div>
-                        <div class="flex-item-interno">
-                            <h4 class="card-title">Programador Java</h4>
-                            <p class="card-text">Juiz de Fora - MG</p>
-                            <p>Empresa: Stefanini</p>
-                            <span class="card-label">Pré-requisitos</span>
-                            <p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-                            <span class="saibaMais">saiba mais...</span>
-                            <div class="center">
-                                <button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-                            </div>
-                        </div>
-                        <div class="flex-item-interno">
-                            <h4 class="card-title">Programador Java</h4>
-                            <p class="card-text">Juiz de Fora - MG</p>
-                            <p>Empresa: Stefanini</p>
-                            <span class="card-label">Pré-requisitos</span>
-                            <p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-                            <span class="saibaMais">saiba mais...</span>
-                            <div class="center">
-                                <button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-                            </div>
-                        </div>
-                        <div class="flex-item-interno">
-                            <h4 class="card-title">Programador Java</h4>
-                            <p class="card-text">Juiz de Fora - MG</p>
-                            <p>Empresa: Stefanini</p>
-                            <span class="card-label">Pré-requisitos</span>
-                            <p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-                            <span class="saibaMais">saiba mais...</span>
-                            <div class="center">
-                                <button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-                            </div>
-                        </div>
-                        <div class="flex-item-interno">
-                            <h4 class="card-title">Programador Java</h4>
-                            <p class="card-text">Juiz de Fora - MG</p>
-                            <p>Empresa: Stefanini</p>
-                            <span class="card-label">Pré-requisitos</span>
-                            <p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-                            <span class="saibaMais">saiba mais...</span>
-                            <div class="center">
-                                <button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-                            </div>
-                        </div>
-                        <div class="flex-item-interno"><h4 class="card-title">Programador Java</h4>
-                            <p class="card-text">Juiz de Fora - MG</p>
-                            <p>Empresa: Stefanini</p>
-                            <span class="card-label">Pré-requisitos</span>
-                            <p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-                            <span class="saibaMais">saiba mais...</span>
-                            <div class="center">
-                                <button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-                            </div>
-                        </div>
-                        <div class="flex-item-interno">
-                            <h4 class="card-title">Programador Java</h4>
-                            <p class="card-text">Juiz de Fora - MG</p>
-                            <p>Empresa: Stefanini</p>
-                            <span class="card-label">Pré-requisitos</span>
-                            <p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-                            <span class="saibaMais">saiba mais...</span>
-                            <div class="center">
-                                <button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-                            </div>
-                        </div>
-                        <div class="flex-item-interno">
-                            <h4 class="card-title">Programador Java</h4>
-                            <p class="card-text">Juiz de Fora - MG</p>
-                            <p>Empresa: Stefanini</p>
-                            <span class="card-label">Pré-requisitos</span>
-                            <p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-                            <span class="saibaMais">saiba mais...</span>
-                            <div class="center">
-                                <button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
 

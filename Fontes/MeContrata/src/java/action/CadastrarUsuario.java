@@ -51,16 +51,11 @@ public class CadastrarUsuario implements ICommander {
         
         if (!senha.equals(confirmaSenha)) {
             exibirErroSenha(request, response, usuario);
+        }else {
+            usuarioDao.create(usuario);
+            new Home().execute(request, response);
         }
         
-        usuarioDao.create(usuario);
-        
-        // após cadastrar, redireciona pra Home
-//        response.setContentType("text/html");
-//        response.getOutputStream().println("<script type=\"text/javascript\">");  
-//        response.getOutputStream().println("alert('Cadastro realizado com sucesso!');");  
-//        response.getOutputStream().println("</script>");
-        new Home().execute(request, response);
     }
     
     private void exibirErroSenha(HttpServletRequest request, HttpServletResponse response, Usuario usuario) {
@@ -69,7 +64,7 @@ public class CadastrarUsuario implements ICommander {
             RequestDispatcher rd = null;
             rd = request.getRequestDispatcher("template.jsp?page=cadastroUsuario");
             request.setAttribute("existeErro", true);
-            request.setAttribute("usuario", usuario);
+            request.setAttribute("usuarioCadastro", usuario);
             rd.forward(request, response);
             
         } catch (ServletException ex) {

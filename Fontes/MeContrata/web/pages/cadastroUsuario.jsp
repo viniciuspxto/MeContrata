@@ -77,35 +77,25 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 mTop-20">
                                     <label class="control-label" for="nome">Nome</label>
-                                    <input type="mail" name="nome" class="form-control" value="${usuario.nome}" required="required">
+                                    <input type="mail" name="nome" class="form-control" value="${usuarioCadastro.nome}" required="required">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <label class="control-label" for="dataNascimento">Data Nascimento</label>
-                                    <input type="date" name="dataNascimento" class="form-control" value="${usuario.datanascimento}" required="required">
+                                    <input type="date" name="dataNascimento" class="form-control" value="${usuarioCadastro.datanascimento}" required="required">
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <label class="control-label" for="cpf">CPF</label>
-                                    <input type="text" name="cpf" class="form-control" value="${usuario.cpf}" required="required">
+                                    <input type="text" name="cpf" class="form-control" value="${usuarioCadastro.cpf}" required="required">
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                                     <label class="control-label" for="telefone">Telefone</label>
-                                    <input type="text" name="telefone" class="form-control" value="${usuario.telefone}" required="required">
+                                    <input type="text" name="telefone" class="form-control" value="${usuarioCadastro.telefone}" required="required">
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <label class="control-label" for="addFoto">Adicionar Foto</label>
-                                    <input type="file" name="addFoto" class="form-control">
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 acoes">
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                                 </div>

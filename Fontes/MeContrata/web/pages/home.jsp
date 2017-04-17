@@ -4,14 +4,17 @@
     Author     : vinicius
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!--banner-->
 <div class="row text-center">
 	<div class="banner">
 		<div class="campoBusca">
-			<input type="text" name="search" class="form-control-search-pricnipal" placeholder="Digite um cargo, empresa ou localidade">
-			<button class="btn botaoBusca" onclick="window.location.href='resultado_busca.html'")">Encontrar Vaga</button>
+                    <form action="HomeCentral?op=pesquisarVaga" method="POST">
+                        <input type="text" name="search" class="form-control-search-pricnipal" placeholder="Digite um cargo...">
+			<button type="submit" class="btn botaoBusca">Encontrar Vaga</button>
+                    </form>
 		</div>
 		<div class="single-item">
 			<div>
@@ -50,60 +53,26 @@
 			</div>
 
 			<div class="flex-container">
+                            <c:forEach var="v" items="${vagas}" >
 				<div class="flex-item">
-					<h4 class="card-title">Programador Java</h4>
-					<p class="card-text">Juiz de Fora - MG</p>
-					<p>Empresa: Stefanini</p>
-					<span class="card-label">Pré-requisitos</span>
-					<p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-					<span class="saibaMais">saiba mais...</span>
-					<div class="center">
-						<button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-					</div>
+					<h4 class="card-title">${v.nome}</h4>
+					<p class="card-text">${v.idEmpresa.cidade} - ${v.idEmpresa.estado}</p>
+					<p>${v.idEmpresa.nomefantasia}</p>
+					<span class="card-label">Descrição</span>
+					<p class="card-descricao">${v.descricaoFormatada}</p>
+					<form action="HomeCentral" method="POST">
+                                            <input type="hidden" value="detalheVaga" name="op">
+                                            <input type="hidden" value="${v.id}" name="idVaga">
+                                            <input type="submit" value="saiba mais..">
+                                        </form>
+                                        <c:if test="${usuario != null}">
+                                            <div class="center">
+						<button class="btn btnCandidatar amarelo">Candidatar a vaga</button>
+                                            </div>
+                                        </c:if>
+                                        
 				</div>
-				<div class="flex-item">
-					<h4 class="card-title">Programador Java</h4>
-					<p class="card-text">Juiz de Fora - MG</p>
-					<p>Empresa: Stefanini</p>
-					<span class="card-label">Pré-requisitos</span>
-					<p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-					<span class="saibaMais">saiba mais...</span>
-					<div class="center">
-						<button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-					</div>
-				</div>
-				<div class="flex-item">
-					<h4 class="card-title">Programador Java</h4>
-					<p class="card-text">Juiz de Fora - MG</p>
-					<p>Empresa: Stefanini</p>
-					<span class="card-label">Pré-requisitos</span>
-					<p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-					<span class="saibaMais">saiba mais...</span>
-					<div class="center">
-						<button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-					</div>
-				</div>
-				<div class="flex-item">
-					<h4 class="card-title">Programador Java</h4>
-					<p class="card-text">Juiz de Fora - MG</p>
-					<p>Empresa: Stefanini</p>
-					<span class="card-label">Pré-requisitos</span>
-					<p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-					<span class="saibaMais">saiba mais...</span>
-					<div class="center">
-						<button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-					</div>
-				</div>
-				<div class="flex-item"><h4 class="card-title">Programador Java</h4>
-					<p class="card-text">Juiz de Fora - MG</p>
-					<p>Empresa: Stefanini</p>
-					<span class="card-label">Pré-requisitos</span>
-					<p class="card-descricao">Nunc id odio id nibh eleifend cursus vitae at sapien. Phasellus massa arcu, varius vitae euismod quis, ullamcorper eu erat.</p>
-					<span class="saibaMais">saiba mais...</span>
-					<div class="center">
-						<button class="btn btnCandidatar amarelo" onclick="alert('Efetua Cadastro vaga')">Cadastrar a esta vaga</button>
-					</div>
-				</div>
+                            </c:forEach>
 			</div>
 		</section>
 
@@ -140,35 +109,3 @@
 	</div>
 </div>
 
-<!-- MODAL TIPO CADASTRO -->
-<div class="modal fade" id="tipoCadastro">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<!-- Modal Body -->
-			<div class="modal-body">
-				<div class="form-group">
-
-					<div class="row">
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
-							<h4 class="bemVindo">Bem-vindo ao Me Contrata!</h4><br>
-							<span class="textoDestaque">Escolha qual tipo de cadastro você deseja criar:</span>
-						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center mTop-40">
-							<a href="template.jsp?page=cadastroUsuario">
-								<figure><img class="iconTipoCadastro" src="img/user.svg" alt="usuario"></figure>
-								<span class="nomeIconCad">Usuário</span>
-							</a>
-						</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center mTop-40">
-							<a href="template.jsp?page=cadastroEmpresa">
-								<figure><img class="iconTipoCadastro" src="img/empresa.svg" alt="usuario"></figure>
-								<span class="nomeIconCad">Empresa</span>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- FIM DA MODAL -->

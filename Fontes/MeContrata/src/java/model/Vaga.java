@@ -19,6 +19,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -54,18 +55,36 @@ public class Vaga implements Serializable {
     @Column(name = "beneficios")
     private String beneficios;
     @Column(name = "ativo")
-    private Short ativo;
+    private Integer ativo;
     @JoinColumn(name = "idEmpresa", referencedColumnName = "id")
     @ManyToOne
     private Empresa idEmpresa;
     @OneToMany(mappedBy = "idVaga")
     private List<CandidatoVaga> candidatoVagaList;
+    @Transient
+    private String descricaoFormatada;
+    
 
     public Vaga() {
     }
 
     public Vaga(Integer id) {
         this.id = id;
+    }
+
+    public String getDescricaoFormatada() {
+        if (this.descricao != null) {
+            int tamanhoDesc = this.descricao.length();
+            if (tamanhoDesc < 125) {
+                return this.descricao+"...";
+            }
+            return this.descricao.substring(0,123)+"...";
+        }
+        return "...";
+    }
+
+    public void setDescricaoFormatada(String descricaoFormatada) {
+        this.descricaoFormatada = descricaoFormatada;
     }
 
     public Integer getId() {
@@ -108,11 +127,11 @@ public class Vaga implements Serializable {
         this.beneficios = beneficios;
     }
 
-    public Short getAtivo() {
+    public Integer getAtivo() {
         return ativo;
     }
 
-    public void setAtivo(Short ativo) {
+    public void setAtivo(Integer ativo) {
         this.ativo = ativo;
     }
 
@@ -157,5 +176,6 @@ public class Vaga implements Serializable {
     public String toString() {
         return "model.Vaga[ id=" + id + " ]";
     }
+    
     
 }

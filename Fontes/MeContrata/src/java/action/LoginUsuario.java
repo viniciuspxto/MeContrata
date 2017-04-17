@@ -43,12 +43,16 @@ public class LoginUsuario implements ICommander {
         if (usuario == null) {
             loginUsuarioInvalido(request, response);
         }else{
-            login(request, usuario);
+            try {
+                login(request, usuario, response);
+            } catch (ServletException ex) {
+                Logger.getLogger(LoginUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(LoginUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-            
-        
-        
-        
         
     }
     
@@ -60,16 +64,17 @@ public class LoginUsuario implements ICommander {
             rd.forward(request, response);
             
         } catch (ServletException ex) {
-            Logger.getLogger(CadastrarEmpresa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(CadastrarEmpresa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     // colocar objeto usuario na sessão 
-    private void login(HttpServletRequest request, Usuario usuario){
+    private void login(HttpServletRequest request, Usuario usuario, HttpServletResponse response) throws ServletException, IOException, Exception{
         HttpSession session = request.getSession();
         session.setAttribute("usuario", usuario);
+        new Home().execute(request, response);
     }
     
 }

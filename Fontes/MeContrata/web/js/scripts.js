@@ -15,6 +15,10 @@
 		$('#perfilUsuario').click(function(){
 			$('#abaPerfil').toggle();
 		});
+                
+                $('#perfilEmpresa').click(function(){
+			$('#abaPerfilEmpresa').toggle();
+		});
 
 		// SLICK SLIDER
 		$('.single-item').slick({

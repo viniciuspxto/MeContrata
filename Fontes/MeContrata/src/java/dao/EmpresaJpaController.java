@@ -186,5 +186,18 @@ public class EmpresaJpaController implements Serializable {
             em.close();
         }
     }
-    
+
+    public Empresa verificaLogin(String loginEmpresa, String senha) {
+        EntityManager em = getEntityManager();
+        String query = "select u from Empresa u where u.email = :email and u.senha = :senha";
+        Query q = em.createQuery(query);
+        q.setParameter("email", loginEmpresa);
+        q.setParameter("senha", senha);
+        List<Empresa> empresas = q.getResultList();
+        if (empresas != null && empresas.size() > 0) {
+            return (Empresa) empresas.get(0);
+        }
+        return null;
+    }
+
 }

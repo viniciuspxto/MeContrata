@@ -7,10 +7,16 @@ package controller;
 
 import action.CadastrarEmpresa;
 import action.CadastrarUsuario;
+import action.CadastrarVaga;
+import action.DetalheVaga;
+import action.EditarPerfil;
 import action.Home;
 import action.ICommander;
 import action.LoginEmpresa;
 import action.LoginUsuario;
+import action.Logout;
+import action.PesquisarVaga;
+import action.SalvarCurriculo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -29,17 +35,22 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "HomeCentral", urlPatterns = {"/HomeCentral"})
 public class HomeCentral extends HttpServlet {
-    
-    static Map<String,ICommander> listaActions = new HashMap<String, ICommander>();
-    
-    
+
+    static Map<String, ICommander> listaActions = new HashMap<String, ICommander>();
+
     //Chamada lista de actions
-    static{
-       listaActions.put("cadastrarUsuario", new CadastrarUsuario());
-       listaActions.put("cadastrarEmpresa", new CadastrarEmpresa());
-       listaActions.put("home", new Home());
-       listaActions.put("loginUsuario", new LoginUsuario());
-       listaActions.put("loginEmpresa", new LoginEmpresa());
+    static {
+        listaActions.put("cadastrarUsuario", new CadastrarUsuario());
+        listaActions.put("cadastrarEmpresa", new CadastrarEmpresa());
+        listaActions.put("home", new Home());
+        listaActions.put("loginUsuario", new LoginUsuario());
+        listaActions.put("loginEmpresa", new LoginEmpresa());
+        listaActions.put("logoutUsuario", new Logout());
+        listaActions.put("salvarCurriculo", new SalvarCurriculo());
+        listaActions.put("editarPerfil", new EditarPerfil());
+        listaActions.put("cadastrarVaga", new CadastrarVaga());
+        listaActions.put("pesquisarVaga", new PesquisarVaga());
+        listaActions.put("detalheVaga", new DetalheVaga());
     }
 
     /**
@@ -54,19 +65,18 @@ public class HomeCentral extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         String operacao = request.getParameter("op");
-        if (operacao == null){
+        if (operacao == null) {
             operacao = "home";
-        }        
+        }
         try {
-            listaActions.get(operacao).execute(request, response);           
+            listaActions.get(operacao).execute(request, response);
 
         } catch (Exception ex) {
             Logger.getLogger(HomeCentral.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

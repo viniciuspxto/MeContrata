@@ -143,7 +143,7 @@ public class UsuarioJpaController implements Serializable {
         q.setParameter("senha", senha);
         List<Usuario> usuarios = q.getResultList();
         if(usuarios != null && usuarios.size() > 0){
-            return usuarios.get(0);
+            return (Usuario)usuarios.get(0);
         }
         return null;
         

@@ -91,6 +91,29 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
+    public Usuario(Integer id, String nome, Date datanascimento, String cpf, String telefone, String email, String formacaoAcademica, String experienciaProfissional) {
+        this.id = id;
+        this.nome = nome;
+        this.datanascimento = datanascimento;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.email = email;
+        this.formacaoAcademica = formacaoAcademica;
+        this.experienciaProfissional = experienciaProfissional;
+    }
+
+    public Usuario(Integer id, String nome, Date datanascimento, String cpf, String telefone, String email, String senha, String formacaoAcademica, String experienciaProfissional) {
+        this.id = id;
+        this.nome = nome;
+        this.datanascimento = datanascimento;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
+        this.formacaoAcademica = formacaoAcademica;
+        this.experienciaProfissional = experienciaProfissional;
+    }
+
     public Integer getId() {
         return id;
     }

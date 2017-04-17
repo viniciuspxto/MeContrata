@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -79,10 +80,12 @@ public class Empresa implements Serializable {
     private List<Vaga> vagaList;
 
     public Empresa() {
+        vagaList = new ArrayList<>();
     }
 
     public Empresa(Integer id) {
         this.id = id;
+        vagaList = new ArrayList<>();
     }
 
     public Empresa(String nomefantasia, String razaoSocial, String cnpj, String email, String senha, String cep, String logradouro, String numero, String complemento, String bairro, String cidade, String estado, String telefone) {
@@ -99,6 +102,7 @@ public class Empresa implements Serializable {
         this.cidade = cidade;
         this.estado = estado;
         this.telefone = telefone;
+        vagaList = new ArrayList<>();
     }
 
     public Integer getId() {

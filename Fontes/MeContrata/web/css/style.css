@@ -174,6 +174,21 @@ label {
 }
 
 
+.btnVoltar {
+    padding: 8px 20px;
+    color: #fff;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.btnVoltar a {
+    color: #fff;
+}
+
+.btnVoltar a:hover {
+    color: #005F5F;
+}
+
 
 /* ========================================================================================================
                     HEADER
@@ -416,7 +431,7 @@ label {
 ======================================================================================================== */
 
 .card {
-    width: 20rem !important;
+    width: 30rem !important;
     height: 350px;
     background-color: #fff;
     margin:  0px 20px;
@@ -426,9 +441,10 @@ label {
 }
 
 h4.card-title {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 0px !important;
     margin-top: 0px !important;
+    text-transform: capitalize;
 }
 
 .card-text {
@@ -468,7 +484,7 @@ h4.card-title {
     flex-direction: row;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+    flex-wrap: inherit;
     -webkit-justify-content: space-around;
     -ms-flex-pack: distribute;
     justify-content: space-around;
@@ -483,8 +499,8 @@ h4.card-title {
 
 .flex-item {
     background-color: #fff;
-    width: 220px;
-    height: auto;
+    width: 260px;
+    height: 300px;
     /* box-shadow: 0px 2px 15px #d3d3d3; */
     border: 1px solid #EcEcEc;
     padding: 20px;
@@ -570,7 +586,7 @@ h4.card-title {
 
 #abaLoginUsuario {
     width: 210px;
-    height: 260px;
+    height: auto !important;
     background-color: #fff;
     box-shadow: 1px 1px 10px rgba(130, 130, 130, 0.8);
     position: fixed;
@@ -579,6 +595,7 @@ h4.card-title {
     z-index: 150;
     display: none;
     padding: 20px;
+    border-radius: 10px;
 }
 
 #abaLoginUsuario:before {
@@ -676,7 +693,7 @@ h4.card-title {
 
 #abaLoginEmpresa {
     width: 210px;
-    height: auto;
+    height: auto !important;
     background-color: #fff;
     box-shadow: 1px 1px 10px rgba(130, 130, 130, 0.8);
     position: fixed;
@@ -685,6 +702,7 @@ h4.card-title {
     z-index: 150;
     display: none;
     padding: 20px;
+    border-radius: 5px;
 }
 
 #abaLoginEmpresa:before {
@@ -786,11 +804,12 @@ h4.card-title {
     background-color: #fff;
     box-shadow: 1px 1px 10px rgba(130, 130, 130, 0.8);
     position: fixed;
-    right: 100px;
+    right: 36px;
     top: 85px;
     z-index: 150;
     display: none;
     padding: 20px;
+    border-radius: 5px;
 }
 
 #abaPerfil:before {
@@ -815,11 +834,6 @@ h4.card-title {
     top: -10px;
 }
 
-.fotoProfile img {
-    height: 90px;
-    width:  90px;
-    border-radius: 50%;
-}
 
 .nomePerfil {
     font-size: 16px;
@@ -846,6 +860,65 @@ h4.card-title {
 }
 
 #abaPerfil ul img {
+    height: 20px;
+    padding-right: 5px;
+}
+
+/* ========================================================================================================
+            ABA PERFIL EMPRESA
+======================================================================================================== */
+
+#abaPerfilEmpresa {
+    width: 210px;
+    height: auto;
+    background-color: #fff;
+    box-shadow: 1px 1px 10px rgba(130, 130, 130, 0.8);
+    position: fixed;
+    right: 36px;
+    top: 85px;
+    z-index: 150;
+    display: none;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#abaPerfilEmpresa:before {
+    content: "";
+    display: inline-block;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 13px solid rgba(212, 211, 211, 0.4);
+    position: absolute;
+    right: 17px;
+    top: -14px;
+}
+
+#abaPerfilEmpresa:after {
+    content: "";
+    display: inline-block;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    position: absolute;
+    right: 20px;
+    top: -10px;
+}
+
+
+#abaPerfilEmpresa ul li {
+    border-bottom: 1px solid #d4d4d4;
+    padding: 15px 0px;
+}
+
+#abaPerfilEmpresa ul li a {
+    color: #95989A;
+}
+
+#abaPerfilEmpresa ul li a:hover {
+    color: #00D1D1;
+}
+
+#abaPerfilEmpresa ul img {
     height: 20px;
     padding-right: 5px;
 }
@@ -958,13 +1031,12 @@ span.qtdVagas {
 
 #alertLogin {
     padding: 9px !important;
-    margin-bottom: 0px !important;
-    margin-top: 4px !important;
+    margin: 4px 0px 0px !important;
     color: #a94442;
     background-color: #f2dede;
     border-color: #ebccd1;
-    margin-bottom: 0px;
     border-radius: 4px;
+    font-size: 12px;
 }
 
 /* ========================================================================================================
