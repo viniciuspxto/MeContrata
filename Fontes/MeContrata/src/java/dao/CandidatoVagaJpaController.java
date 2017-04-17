@@ -15,6 +15,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import model.CandidatoVaga;
+import model.Empresa;
 import model.Usuario;
 import model.Vaga;
 
@@ -194,4 +195,12 @@ public class CandidatoVagaJpaController implements Serializable {
         }
     }
     
+//    RECUPERAR VAGAS POR CANDIDATO
+    public List<CandidatoVaga> recuperarVagasPorCandidato(int id) {
+        EntityManager em = getEntityManager();
+        String query = "select c from CandidatoVaga c where c.idCandidato.id = :id";
+        Query q = em.createQuery(query);
+        q.setParameter("id", id);
+        return q.getResultList();
+    }
 }

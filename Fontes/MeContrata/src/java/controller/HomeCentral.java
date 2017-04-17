@@ -8,6 +8,7 @@ package controller;
 import action.CadastrarEmpresa;
 import action.CadastrarUsuario;
 import action.CadastrarVaga;
+import action.CandidatarVaga;
 import action.DetalheVaga;
 import action.EditarPerfil;
 import action.Home;
@@ -15,8 +16,10 @@ import action.ICommander;
 import action.LoginEmpresa;
 import action.LoginUsuario;
 import action.Logout;
+import action.MinhasVagas;
 import action.PesquisarVaga;
 import action.SalvarCurriculo;
+import action.VagasCandidatadas;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -51,6 +54,9 @@ public class HomeCentral extends HttpServlet {
         listaActions.put("cadastrarVaga", new CadastrarVaga());
         listaActions.put("pesquisarVaga", new PesquisarVaga());
         listaActions.put("detalheVaga", new DetalheVaga());
+        listaActions.put("vagasCandidatadas", new VagasCandidatadas());
+        listaActions.put("candidatarVaga", new CandidatarVaga());
+        listaActions.put("minhasVagas", new MinhasVagas());
     }
 
     /**

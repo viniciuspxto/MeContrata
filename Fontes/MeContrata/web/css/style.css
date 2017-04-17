@@ -187,8 +187,23 @@ label {
 
 .btnVoltar a:hover {
     color: #005F5F;
+    font-weight: bold;
 }
 
+.btnCandidatos {
+    padding: 8px 20px;
+    color: #fff;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.btnCandidatos:hover {
+    padding: 8px 20px;
+    color: #fff;
+    border-radius: 20px;
+    font-weight: bold;
+}
 
 /* ========================================================================================================
                     HEADER
@@ -484,7 +499,7 @@ h4.card-title {
     flex-direction: row;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
-    flex-wrap: inherit;
+    flex-wrap: wrap;
     -webkit-justify-content: space-around;
     -ms-flex-pack: distribute;
     justify-content: space-around;
@@ -500,10 +515,8 @@ h4.card-title {
 .flex-item {
     background-color: #fff;
     width: 260px;
-    height: 300px;
-    /* box-shadow: 0px 2px 15px #d3d3d3; */
     border: 1px solid #EcEcEc;
-    padding: 20px;
+    padding: 30px 25px;
     margin: 0 10px 30px 10px;
     border-radius: 10px;
 }
@@ -548,6 +561,7 @@ h4.card-title {
     font-size: 18px;
     font-weight: normal;
 }
+
 
 /* ========================================================================================================
                 ESTATÍSTICAS

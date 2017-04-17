@@ -82,7 +82,8 @@
             <ul class="listaUser">
                 <li><a href="template.jsp?page=editarPerfil"><img src="img/user.svg"> Editar Perfil</a></li>
                 <li><a href="template.jsp?page=cadastroCurriculo"><img src="img/curriculo.svg"> Meu Currículo</a></li>
-                <li><a href="#"><img src="img/vaga.svg"> Vagas Candidatadas</a></li>
+                <li><a href="#"><img src="img/vaga.svg"> Notificações</a></li>
+                <li><a href="HomeCentral?op=vagasCandidatadas"><img src="img/vaga.svg"> Vagas Candidatadas</a></li>
                 <li class="logout"><a href="HomeCentral?op=logoutUsuario"><img src="img/logout.svg"> Sair</a></li>
             </ul>
         </div>
@@ -91,7 +92,7 @@
         <div id="abaPerfilEmpresa">
             <ul class="listaUser">
                 <li><a href="template.jsp?page=cadastroEmpresa"><img src="img/empresa.svg"> Editar Perfil</a></li>
-                <li><a href="#"><img src="img/vaga.svg"> Minhas Vagas</a></li>
+                <li><a href="HomeCentral?op=minhasVagas"><img src="img/vaga.svg"> Minhas Vagas</a></li>
                 <li><a href="template.jsp?page=cadastrarVaga"><img src="img/vaga.svg"> Cadastrar Vaga</a></li>
                 <li class="logout"><a href="HomeCentral?op=logoutUsuario"><img src="img/logout.svg"> Sair</a></li>
             </ul>
@@ -220,5 +221,39 @@
 			</div>
 		</div>
 	</div>
+</div>
+<!-- FIM DA MODAL -->
+
+<!-- MODAL CONFIRMAR CANDIDATURA -->
+<div class="modal fade" id="confirmacaoCandidatar">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
+                            <h4 class="bemVindo">CANDIDATAR A VAGA</h4><br>
+                            <span class="textoDestaque">Você confirma que quer se candidatar a essa vaga?</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 direita">
+                        <button class="btn btnVoltar verde" data-dismiss="modal">Cancelar</button>
+                    </div>
+                    <form action="HomeCentral" method="POST">
+                        <input type="hidden" name="op" value="candidatarVaga">
+                        <input id="pegarIdVaga" type="hidden" name="idVaga">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 esquerda">
+                            <button type="submit" class="btn btnCandidatar amarelo">Confirmar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- FIM DA MODAL -->

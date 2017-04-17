@@ -60,7 +60,7 @@
                 </div>
                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
             </div>
-            <div class="row mTop-50">
+            <div class="row mTop-50"> 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="flex-container">
                         <c:forEach var="v" items="${vagas}">
@@ -73,18 +73,17 @@
                                 <form action="HomeCentral" method="POST">
                                     <input type="hidden" value="detalheVaga" name="op">
                                     <input type="hidden" value="${v.id}" name="idVaga">
-                                    <input type="submit" value="saiba mais..">
+                                    <input class="saibaMais" type="submit" value="saiba mais..">
                                 </form>
                                 <c:if test="${usuario != null}">
                                     <div class="center">
-                                        <button class="btn btnCandidatar amarelo">Candidatar a vaga</button>
+                                        <button class="btn btnCandidatar amarelo clickBotaoCandidatarVaga" data-target="#confirmacaoCandidatar" data-toggle="modal" value="${v.id}">Candidatar a vaga</button>
                                     </div>
                                 </c:if>
                             </div>
                         </c:forEach>
                     </div>
                 </div>
-
             </div>
         </section>
     </div>

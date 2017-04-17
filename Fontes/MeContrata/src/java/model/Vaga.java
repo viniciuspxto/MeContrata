@@ -63,7 +63,8 @@ public class Vaga implements Serializable {
     private List<CandidatoVaga> candidatoVagaList;
     @Transient
     private String descricaoFormatada;
-    
+    @Transient
+    private int numeroCandidatosInscritos;
 
     public Vaga() {
     }
@@ -83,6 +84,18 @@ public class Vaga implements Serializable {
         return "...";
     }
 
+    public int getNumeroCandidatosInscritos() {
+        if(this.candidatoVagaList != null)
+        {
+            return this.candidatoVagaList.size();
+        }
+        return 0;
+    }
+
+    public void setNumeroCandidatosInscritos(int numeroCandidatosInscritos) {
+        this.numeroCandidatosInscritos = numeroCandidatosInscritos;
+    }
+    
     public void setDescricaoFormatada(String descricaoFormatada) {
         this.descricaoFormatada = descricaoFormatada;
     }

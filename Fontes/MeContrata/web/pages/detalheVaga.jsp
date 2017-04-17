@@ -20,7 +20,7 @@
             <h2>Aproveite, é grátis.</h2>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-            
+
         </div>
     </div>
 </div>
@@ -33,7 +33,7 @@
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
 
                 </div>
-                
+
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 center">
                     <span id="textoDestaque">Encontre a vaga ideal que você procura:</span>
                     <div class="campoBuscaInterna">
@@ -90,8 +90,8 @@
                                     <button class="btn btnVoltar verde"><a href="HomeCentral?op=pesquisarVaga">Voltar</a></button>
                                 </div>
                                 <c:if test="${usuario != null}">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 esquerda">
-                                        <button class="btn btnCandidatar amarelo">Cadastrar a esta vaga</button>
+                                    <div class="center">
+                                        <button class="btn btnCandidatar amarelo clickBotaoCandidatarVaga" data-target="#confirmacaoCandidatar" data-toggle="modal" value="${v.id}">Candidatar a vaga</button>
                                     </div>
                                 </c:if>
                             </div>

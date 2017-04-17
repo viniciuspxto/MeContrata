@@ -26,6 +26,10 @@
 			autoplay: true,
 			autoplaySpeed: 2000,
 		});
-
+                
+                // BOTÃO CANDIDATAR VAGA
+                $('.clickBotaoCandidatarVaga').click(function(){
+                    $("#pegarIdVaga").val(this.value);                  
+                });
 
 	});
