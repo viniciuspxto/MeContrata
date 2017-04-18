@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -20,6 +21,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -74,6 +76,8 @@ public class Usuario implements Serializable {
     private String experienciaProfissional;
     @OneToMany(mappedBy = "idCandidato")
     private List<CandidatoVaga> candidatoVagaList;
+    @Transient
+    private String dataFormatada;
 
     public Usuario() {
     }
@@ -113,6 +117,16 @@ public class Usuario implements Serializable {
         this.formacaoAcademica = formacaoAcademica;
         this.experienciaProfissional = experienciaProfissional;
     }
+
+    public String getDataFormatada() {
+        if(this.datanascimento != null){
+            SimpleDateFormat df =  new SimpleDateFormat("dd/MM/yyyy");
+            this.dataFormatada = df.format(this.datanascimento);
+            return dataFormatada;
+        }
+        return "";
+    }
+    
 
     public Integer getId() {
         return id;

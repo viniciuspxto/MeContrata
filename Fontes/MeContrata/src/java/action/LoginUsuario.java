@@ -5,6 +5,7 @@
  */
 package action;
 
+import dao.EscolhaCandidatoVagaJpaController;
 import dao.UsuarioJpaController;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -44,7 +45,7 @@ public class LoginUsuario implements ICommander {
             loginUsuarioInvalido(request, response);
         }else{
             try {
-                login(request, usuario, response);
+                login(request, usuario, response, emf);
             } catch (ServletException ex) {
                 Logger.getLogger(LoginUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -71,10 +72,16 @@ public class LoginUsuario implements ICommander {
     }
     
     // colocar objeto usuario na sessão 
-    private void login(HttpServletRequest request, Usuario usuario, HttpServletResponse response) throws ServletException, IOException, Exception{
+    private void login(HttpServletRequest request, Usuario usuario, HttpServletResponse response, EntityManagerFactory emf) throws ServletException, IOException, Exception{
         HttpSession session = request.getSession();
         session.setAttribute("usuario", usuario);
+        session.setAttribute("notificacoesNaoLidas", this.recuperarNotificacoes(usuario.getId(), emf));
         new Home().execute(request, response);
+    }
+    
+    private Integer recuperarNotificacoes(Integer idUsuario, EntityManagerFactory emf){
+        EscolhaCandidatoVagaJpaController escolhaCandidatoVagaJpaController = new EscolhaCandidatoVagaJpaController(emf);
+        return escolhaCandidatoVagaJpaController.buscarNotificacoesNaoLidas(idUsuario).size();
     }
     
 }

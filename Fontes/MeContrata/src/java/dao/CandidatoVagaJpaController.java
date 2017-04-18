@@ -195,10 +195,19 @@ public class CandidatoVagaJpaController implements Serializable {
         }
     }
     
-//    RECUPERAR VAGAS POR CANDIDATO
+    //RECUPERAR VAGAS POR CANDIDATO
     public List<CandidatoVaga> recuperarVagasPorCandidato(int id) {
         EntityManager em = getEntityManager();
         String query = "select c from CandidatoVaga c where c.idCandidato.id = :id";
+        Query q = em.createQuery(query);
+        q.setParameter("id", id);
+        return q.getResultList();
+    }
+    
+    //RECUPERAR CANDIDATO VAGA POR VAGA
+    public List<CandidatoVaga> recuperarCandidatoVagaPorVaga(int id) {
+        EntityManager em = getEntityManager();
+        String query = "select c from CandidatoVaga c where c.idVaga.id = :id";
         Query q = em.createQuery(query);
         q.setParameter("id", id);
         return q.getResultList();

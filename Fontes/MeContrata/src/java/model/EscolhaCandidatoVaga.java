@@ -21,14 +21,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author vinicius
+ * @author viniciuspeixoto
  */
 @Entity
 @Table(name = "escolha_candidato_vaga")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "EscolhaCandidatoVaga.findAll", query = "SELECT e FROM EscolhaCandidatoVaga e")
-    , @NamedQuery(name = "EscolhaCandidatoVaga.findById", query = "SELECT e FROM EscolhaCandidatoVaga e WHERE e.id = :id")})
+    , @NamedQuery(name = "EscolhaCandidatoVaga.findById", query = "SELECT e FROM EscolhaCandidatoVaga e WHERE e.id = :id")
+    , @NamedQuery(name = "EscolhaCandidatoVaga.findByVisualizada", query = "SELECT e FROM EscolhaCandidatoVaga e WHERE e.visualizada = :visualizada")})
 public class EscolhaCandidatoVaga implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -37,11 +38,17 @@ public class EscolhaCandidatoVaga implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "visualizada")
+    private Integer visualizada;
     @JoinColumn(name = "idCandidatoVaga", referencedColumnName = "id")
     @ManyToOne
     private CandidatoVaga idCandidatoVaga;
 
     public EscolhaCandidatoVaga() {
+    }
+    
+    public EscolhaCandidatoVaga(CandidatoVaga idCandidatoVaga) {
+        this.idCandidatoVaga = idCandidatoVaga;
     }
 
     public EscolhaCandidatoVaga(Integer id) {
@@ -54,6 +61,14 @@ public class EscolhaCandidatoVaga implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getVisualizada() {
+        return visualizada;
+    }
+
+    public void setVisualizada(Integer visualizada) {
+        this.visualizada = visualizada;
     }
 
     public CandidatoVaga getIdCandidatoVaga() {

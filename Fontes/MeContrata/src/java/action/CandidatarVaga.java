@@ -7,7 +7,6 @@ package action;
 
 import dao.CandidatoVagaJpaController;
 import dao.VagaJpaController;
-import javax.jms.Session;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

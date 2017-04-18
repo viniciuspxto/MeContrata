@@ -56,7 +56,7 @@
                 </div>
                 <div id="usuario" class="ol-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <ul class="list-inline">
-                        <li id="perfilUsuario" class="listaMenu">Olá, ${usuario.nome}</li>
+                        <li id="perfilUsuario" class="listaMenu">Olá, ${usuario.nome}<span class="iconeNome glyphicon glyphicon-chevron-down"></span></li>
                     </ul>
                 </div>
             </header>
@@ -71,7 +71,7 @@
                 </div>
                 <div id="usuario" class="ol-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <ul class="list-inline">
-                        <li id="perfilEmpresa" class="listaMenu">Olá, ${empresa.nomefantasia}</li>
+                        <li id="perfilEmpresa" class="listaMenu">Olá, ${empresa.nomefantasia}<span class="iconeNome glyphicon glyphicon-chevron-down"></span></li>
                     </ul>
                 </div>
             </header>
@@ -82,7 +82,7 @@
             <ul class="listaUser">
                 <li><a href="template.jsp?page=editarPerfil"><img src="img/user.svg"> Editar Perfil</a></li>
                 <li><a href="template.jsp?page=cadastroCurriculo"><img src="img/curriculo.svg"> Meu Currículo</a></li>
-                <li><a href="#"><img src="img/vaga.svg"> Notificações</a></li>
+                <li><a href="HomeCentral?op=notificacoes"><img src="img/notificacoes.svg"> Notificações <span class="badge verde">${notificacoesNaoLidas}</span></a></li>
                 <li><a href="HomeCentral?op=vagasCandidatadas"><img src="img/vaga.svg"> Vagas Candidatadas</a></li>
                 <li class="logout"><a href="HomeCentral?op=logoutUsuario"><img src="img/logout.svg"> Sair</a></li>
             </ul>
@@ -249,6 +249,40 @@
                         <input id="pegarIdVaga" type="hidden" name="idVaga">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 esquerda">
                             <button type="submit" class="btn btnCandidatar amarelo">Confirmar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FIM DA MODAL -->
+
+<!-- MODAL CONFIRMAR CONTRATAÇÃO -->
+<div class="modal fade" id="confirmacaoContratar">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 center">
+                            <h4 class="bemVindo">CONTRATAR CANDIDATO</h4><br>
+                            <span class="textoDestaque">Você confirma o preenchimento da vaga com o candidato selecionado?</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 direita">
+                        <button class="btn btnVoltar verde" data-dismiss="modal">Cancelar</button>
+                    </div>
+                    <form action="HomeCentral" method="POST">
+                        <input type="hidden" name="op" value="contratar">
+                        <input id="pegarIdCandidatoVaga" type="hidden" name="idCandidatoVaga">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 esquerda">
+                            <button type="submit" class="btn btnContratarAmarelo amarelo">Confirmar</button>
                         </div>
                     </form>
                 </div>

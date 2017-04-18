@@ -34,9 +34,12 @@ public class MinhasVagas implements ICommander {
         
         List<Vaga> vagaEmpresa = vagaDao.buscarVagasPorEmpresa(empresa.getId());
         
+        List<Vaga> vagaEmpresaPreenchidas = vagaDao.buscarVagasPorEmpresaPreenchidas(empresa.getId());
+        
         RequestDispatcher rd = null;
         rd = request.getRequestDispatcher("template.jsp?page=minhasVagas");
         request.setAttribute("vagas", vagaEmpresa);
+        request.setAttribute("vagaspreenchidas", vagaEmpresaPreenchidas);
         rd.forward(request, response);
     }
     

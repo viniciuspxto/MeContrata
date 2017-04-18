@@ -6,7 +6,9 @@
 package model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +18,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,6 +34,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "CandidatoVaga.findAll", query = "SELECT c FROM CandidatoVaga c")
     , @NamedQuery(name = "CandidatoVaga.findById", query = "SELECT c FROM CandidatoVaga c WHERE c.id = :id")})
 public class CandidatoVaga implements Serializable {
+
+    @OneToMany(mappedBy = "idCandidatoVaga")
+    private List<EscolhaCandidatoVaga> escolhaCandidatoVagaList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -98,6 +105,15 @@ public class CandidatoVaga implements Serializable {
     @Override
     public String toString() {
         return "model.CandidatoVaga[ id=" + id + " ]";
+    }
+
+    @XmlTransient
+    public List<EscolhaCandidatoVaga> getEscolhaCandidatoVagaList() {
+        return escolhaCandidatoVagaList;
+    }
+
+    public void setEscolhaCandidatoVagaList(List<EscolhaCandidatoVaga> escolhaCandidatoVagaList) {
+        this.escolhaCandidatoVagaList = escolhaCandidatoVagaList;
     }
     
 }

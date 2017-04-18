@@ -200,4 +200,13 @@ public class VagaJpaController implements Serializable {
         q.setParameter("id", id);
         return q.getResultList();
     }
+    
+    @SuppressWarnings("empty-statement")
+    public List<Vaga> buscarVagasPorEmpresaPreenchidas(int id){
+        EntityManager em = getEntityManager();
+        String query = "SELECT v FROM Vaga v WHERE v.ativo = 0 AND v.idEmpresa.id = :id";
+        Query q = em.createQuery(query);
+        q.setParameter("id", id);
+        return q.getResultList();
+    }
 }

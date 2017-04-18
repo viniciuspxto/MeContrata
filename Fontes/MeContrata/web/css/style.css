@@ -97,6 +97,10 @@ label {
     border-color: #31D0D2;
 }
 
+.badge {
+    margin-left: 30px !important;
+}
+
 
 /* ========================================================================================================
                     CORES
@@ -205,6 +209,52 @@ label {
     font-weight: bold;
 }
 
+.btn-vagas {
+    padding: 10px 50px !important;
+    color: #95989A;
+    background-color: #fff;
+    border-color: #EcEcEc;
+    font-size: 16px;
+    font-weight: bold
+}
+
+.btn-vagas:hover {
+    background-color: #31D0D2;
+    color: #fff;
+    border-color: #229E9F;
+
+}
+
+.btn-vagas:focus {
+    background-color: #31D0D2;
+    color: #fff;
+    border-color: #229E9F;
+}
+
+.btn-vagas:active {
+    background-color: #31D0D2 !important;
+    color: #fff !important;
+    border-color: #229E9F !important;
+}
+
+.btnContratarAmarelo {
+    padding: 8px 20px;
+    color: #005F5F;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.btnContratarAmarelo:hover {
+    padding: 8px 20px;
+    color: #005F5F;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+#divVagasPreenchidas {
+    display: none;
+}
+
 /* ========================================================================================================
                     HEADER
 ======================================================================================================== */
@@ -257,6 +307,11 @@ label {
 .logins li a img {
     height: 25px;
     margin-top: 0;
+}
+
+.iconeNome {
+    font-size: 14px !important;
+    padding: 0px 0px 0px 10px !important;
 }
 
 /* ========================================================================================================
@@ -562,6 +617,16 @@ h4.card-title {
     font-weight: normal;
 }
 
+.flex-item-detalhe-inscrito {
+    background-color: #fff;
+    width: 85%;
+    height: auto;
+    border: 1px solid #EcEcEc;
+    padding: 20px;
+    margin: 0 10px 30px 10px;
+    border-radius: 10px;
+}
+
 
 /* ========================================================================================================
                 ESTATÍSTICAS
@@ -818,7 +883,7 @@ h4.card-title {
     background-color: #fff;
     box-shadow: 1px 1px 10px rgba(130, 130, 130, 0.8);
     position: fixed;
-    right: 36px;
+    right: 40px;
     top: 85px;
     z-index: 150;
     display: none;
@@ -1077,6 +1142,7 @@ span.qtdVagas {
 .mTop-40 {padding-top: 40px;}
 .mTop-50 {padding-top: 50px;}
 .mTop-80 {padding-top: 80px;}
+.mTop-120 {padding-top: 120px;}
 
 .glyphicon {
     display: inline-block;

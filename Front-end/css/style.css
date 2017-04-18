@@ -549,7 +549,7 @@ h4.card-title {
 
 .flex-item-detalhe-inscrito {
     background-color: #fff;
-    width: 45%;
+    width: 85%;
     height: auto;
     border: 1px solid #EcEcEc;
     padding: 20px;
@@ -993,6 +993,7 @@ span.qtdVagas {
 .mTop-40 {padding-top: 40px;}
 .mTop-50 {padding-top: 50px;}
 .mTop-80 {padding-top: 80px;}
+.mTop-120 {padding-top: 120px;}
 
 .glyphicon {
     display: inline-block;
